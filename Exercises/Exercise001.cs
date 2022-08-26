@@ -47,7 +47,7 @@ namespace Exercises
                 string message = "VAT cannot be negative. Please enter a valid VAT.";
                 throw new ArgumentException(message, ex);
             }
-            // commit not working?? from visual basic 
+            // checking if commit working
 
             // NB: Look in Exercise001Tests.cs
             //     There is a test with commented out assertions.
