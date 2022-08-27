@@ -2,6 +2,7 @@
 using FluentAssertions;
 using Exercises.Models;
 
+
 namespace Exercises.Tests
 {
     public class Exercise002Tests
@@ -17,10 +18,8 @@ namespace Exercises.Tests
         [Test]
         public void IsFromManchester_Should_Return_True_If_Person_Is_From_Manchester()
         {
-            // Please uncomment the code below to run your test
-
-            //Person p1 = new Person("Peter", "Smith", "Manchester", 23);
-            //Exercise002.IsFromManchester(p1).Should().Be(true);
+            Person p1 = new("Peter", "Smith", "Manchester", 23);
+            Exercise002.IsFromManchester(p1).Should().Be(true);
         }
 
         [Test]
