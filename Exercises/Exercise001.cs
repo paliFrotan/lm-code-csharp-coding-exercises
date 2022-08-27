@@ -76,7 +76,17 @@ namespace Exercises
 
         public int CountLinuxUsers(List<User> users)
         {
-            throw new NotImplementedException();
+            int count = 0;
+            User userCheck = new User("", "", "Linux");
+            Type userType = userCheck.GetType();
+            for (int i = 0; i < users.Count; i++)
+            {
+                if (users[i].GetType().Equals(userType))
+                {
+                    count++;
+                };
+            }  
+            return count;
         }
     }
 }
