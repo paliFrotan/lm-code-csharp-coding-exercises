@@ -80,7 +80,7 @@ namespace Exercises
             
             for (int i = 0; i < users.Count; i++)
             {
-                if (users[i].Type == "Linux")
+                if (users[i].Type.Equals("Linux"))
                 {
                     count++;
                 };
