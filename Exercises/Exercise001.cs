@@ -25,37 +25,23 @@ namespace Exercises
             lastNameLetters[0] = char.ToUpper(lastNameLetters[0]);
             return new string(firstNameLetters[0] + "." + lastNameLetters[0]);
         }
+        
 
         public double AddVat(double originalPrice, double vatRate)
         {
-            try
+            if (originalPrice < 0)
             {
-                try
-                {
-                    double currentRate = (vatRate + 100) / 100;
-                    double result = (originalPrice * currentRate);
-                    return Math.Round(result, 2);
-                }
-                catch (Exception ex1) when (originalPrice < 0)
-                {
-                    string message = "Price cannot be negative. Please enter a valid price.";
-                    throw new ArgumentException(message, ex1);
-                }
+                throw (new ArgumentException("Price cannot be negative. Please enter a valid price."));
             }
-            catch (Exception ex) when (vatRate < 0)
+            if  (vatRate < 0)
             {
-                string message = "VAT cannot be negative. Please enter a valid VAT.";
-                throw new ArgumentException(message, ex);
+                throw (new ArgumentException("VAT cannot be negative. Please enter a valid VAT."));
             }
-            // checking if commit working
-
-            // NB: Look in Exercise001Tests.cs
-            //     There is a test with commented out assertions.
-            //     For an extra challenge, uncomment those assertions and make that test pass too.
-
-
+            double currentRate = (vatRate + 100) / 100;
+            double result = (originalPrice * currentRate);
+            return Math.Round(result, 2);
         }
-
+        
 
         public string Reverse(string sentence)
         {
