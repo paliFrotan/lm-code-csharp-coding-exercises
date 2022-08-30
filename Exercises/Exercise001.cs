@@ -76,16 +76,21 @@ namespace Exercises
 
         public int CountLinuxUsers(List<User> users)
         {
-            int count = 0;
+            if ((users != null) && (!(users.Count == 0)))
+            { 
+
+                int count = 0;
             
-            for (int i = 0; i < users.Count; i++)
-            {
-                if (users[i].Type.Equals("Linux"))
+                for (int i = 0; i < users.Count; i++)
                 {
-                    count++;
-                };
-            }  
-            return count;
+                    if (users[i].Type.Equals("Linux"))
+                    {
+                        count++;
+                    };
+                }  
+                return count;
+            };
+            return 0;
         }
     }
 }
