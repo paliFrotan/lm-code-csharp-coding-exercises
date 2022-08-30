@@ -5,48 +5,42 @@ namespace Exercises
     {
         public bool IsPangram(string input)
         {
-            if (input == "")
+            bool inAlphabetSet = false;
+            if (!string.IsNullOrEmpty(input))
             {
-                return false;
-            }
-
-            string alphabetSet = "abcdefghijklmnopqrstuvwxyz";
-            char aChar = ' ';
-            int count = 0;
-            for (int j = 0; j < alphabetSet.Length; j++)
-            {
-                for (int i = 0; i < input.Length; i++)
+                string alphabetSet = "abcdefghijklmnopqrstuvwxyz";
+            
+                for (int j = 0; j < alphabetSet.Length; j++)
                 {
-                    count = 0;        
-                    aChar = input[i];
+                    for (int i = 0; i < input.Length; i++)
+                    {
+                        inAlphabetSet = false;        
+                        char checkCharInSet = input[i];
 
-                    if (char.IsUpper(aChar) || char.IsLower(aChar))
-                    {
-                        aChar = char.ToLower(input[i]);
-                        if (alphabetSet[j] == aChar)
+                        if (char.IsUpper(checkCharInSet) || char.IsLower(checkCharInSet))
                         {
-                            count++;
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        if (char.IsDigit(aChar) || aChar == ' ' || aChar == '_')
-                        {
-                            continue;
+                            checkCharInSet = char.ToLower(input[i]);
+                            if (alphabetSet[j] == checkCharInSet)
+                            {
+                                inAlphabetSet = true;
+                                break;
+                            }
                         }
                         else
                         {
-                            return false; 
+                            if (!(char.IsDigit(checkCharInSet) || checkCharInSet == ' ' || checkCharInSet == '_'))
+                            {
+                                break;
+                            }
                         }
                     }
+                    if (!inAlphabetSet)
+                    {
+                        return inAlphabetSet; 
+                    }
                 }
-                if (count == 0)
-                {
-                    return false; 
-                }
-            }
-            return true; 
+            };
+            return inAlphabetSet; 
         }
     }
 }
