@@ -62,7 +62,7 @@ namespace Exercises
 
         public int CountLinuxUsers(List<User> users)
         {
-            if ((users != null) && (!(users.Count == 0)))
+            if (users != null && users.Count > 0))
             { 
 
                 int count = 0;
